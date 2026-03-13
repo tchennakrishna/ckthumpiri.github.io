@@ -1,62 +1,681 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>Chennakrishna Thumpiri</title>
-<style>
-body{
-font-family: Arial;
-margin:40px;
-background:#f4f6f8;
-}
-h1{
-color:#2c3e50;
-}
-.section{
-margin-top:30px;
-}
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chennakrishna Thumpiri | Technical Lead – Data & AI Platforms</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0f172a;
+      --bg-soft: #111827;
+      --surface: rgba(255, 255, 255, 0.08);
+      --surface-strong: rgba(255, 255, 255, 0.12);
+      --card: rgba(255, 255, 255, 0.10);
+      --card-border: rgba(255, 255, 255, 0.14);
+      --text: #e5eefb;
+      --muted: #b8c4d9;
+      --accent: #60a5fa;
+      --accent-2: #22d3ee;
+      --accent-3: #8b5cf6;
+      --success: #34d399;
+      --shadow: 0 20px 50px rgba(0, 0, 0, 0.28);
+      --radius-xl: 24px;
+      --radius-lg: 18px;
+      --radius-md: 14px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Inter", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(34, 211, 238, 0.18), transparent 28%),
+        radial-gradient(circle at top right, rgba(96, 165, 250, 0.18), transparent 30%),
+        radial-gradient(circle at bottom center, rgba(139, 92, 246, 0.15), transparent 24%),
+        linear-gradient(180deg, #0b1220 0%, #0f172a 45%, #111827 100%);
+      min-height: 100vh;
+    }
+
+    .page {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 28px 18px 40px;
+    }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      border: 1px solid var(--card-border);
+      background: linear-gradient(135deg, rgba(37, 99, 235, 0.32), rgba(124, 58, 237, 0.24));
+      backdrop-filter: blur(14px);
+      border-radius: 30px;
+      padding: 48px 34px;
+      box-shadow: var(--shadow);
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      width: 280px;
+      height: 280px;
+      background: radial-gradient(circle, rgba(96,165,250,0.35), transparent 65%);
+      top: -80px;
+      right: -40px;
+      pointer-events: none;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      width: 240px;
+      height: 240px;
+      background: radial-gradient(circle, rgba(34,211,238,0.28), transparent 65%);
+      bottom: -100px;
+      left: -50px;
+      pointer-events: none;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      padding: 10px 16px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.10);
+      border: 1px solid rgba(255,255,255,0.14);
+      font-size: 13px;
+      font-weight: 700;
+      color: #dbeafe;
+      margin-bottom: 18px;
+      letter-spacing: 0.3px;
+    }
+
+    .hero h1 {
+      margin: 0;
+      font-size: 42px;
+      line-height: 1.1;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+    }
+
+    .hero p {
+      margin: 14px 0 0;
+      max-width: 860px;
+      font-size: 17px;
+      line-height: 1.75;
+      color: var(--muted);
+    }
+
+    .highlights {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+      margin-top: 22px;
+    }
+
+    .highlight {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 18px;
+      padding: 16px 18px;
+      backdrop-filter: blur(10px);
+      transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease;
+    }
+
+    .highlight:hover {
+      transform: translateY(-4px);
+      border-color: rgba(96,165,250,0.45);
+      background: rgba(255,255,255,0.11);
+    }
+
+    .highlight strong {
+      display: block;
+      font-size: 20px;
+      margin-bottom: 6px;
+      color: white;
+    }
+
+    .highlight span {
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .tabs-wrap {
+      margin-top: 24px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.10);
+      border-radius: 22px;
+      padding: 10px;
+      backdrop-filter: blur(12px);
+      box-shadow: var(--shadow);
+    }
+
+    .tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .tab-button {
+      border: none;
+      background: transparent;
+      color: #c7d3e9;
+      padding: 12px 18px;
+      border-radius: 14px;
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: 700;
+      transition: all 0.25s ease;
+    }
+
+    .tab-button:hover {
+      background: rgba(255,255,255,0.08);
+      color: white;
+    }
+
+    .tab-button.active {
+      background: linear-gradient(135deg, rgba(96,165,250,0.28), rgba(34,211,238,0.18));
+      color: white;
+      border: 1px solid rgba(96,165,250,0.32);
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,0.04);
+    }
+
+    .content-area {
+      margin-top: 20px;
+    }
+
+    .tab-content {
+      display: none;
+      animation: fadeIn 0.3s ease;
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+
+    .panel {
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.10);
+      border-radius: 24px;
+      padding: 28px;
+      backdrop-filter: blur(12px);
+      box-shadow: var(--shadow);
+    }
+
+    h2 {
+      margin-top: 0;
+      margin-bottom: 18px;
+      font-size: 28px;
+      letter-spacing: -0.02em;
+      color: white;
+    }
+
+    h3 {
+      font-size: 18px;
+      margin-top: 0;
+      margin-bottom: 12px;
+      color: #dbeafe;
+    }
+
+    p {
+      margin: 0 0 14px;
+      color: var(--muted);
+      line-height: 1.8;
+      font-size: 15px;
+    }
+
+    ul {
+      margin: 0;
+      padding-left: 20px;
+      color: var(--muted);
+    }
+
+    li {
+      margin-bottom: 12px;
+      line-height: 1.8;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 18px;
+    }
+
+    .modern-card {
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(180deg, rgba(255,255,255,0.10), rgba(255,255,255,0.06));
+      border: 1px solid rgba(255,255,255,0.11);
+      border-radius: 22px;
+      padding: 22px;
+      transition: transform 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease;
+      box-shadow: 0 16px 32px rgba(0,0,0,0.18);
+    }
+
+    .modern-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(96,165,250,0.08), rgba(34,211,238,0.03), transparent);
+      pointer-events: none;
+    }
+
+    .modern-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(96,165,250,0.35);
+      box-shadow: 0 24px 42px rgba(0,0,0,0.24);
+    }
+
+    .modern-card h4 {
+      position: relative;
+      margin: 0 0 10px;
+      font-size: 18px;
+      color: white;
+    }
+
+    .modern-card p,
+    .modern-card li,
+    .modern-card div {
+      position: relative;
+    }
+
+    .tag {
+      display: inline-block;
+      padding: 7px 12px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 700;
+      color: #dbeafe;
+      background: rgba(96,165,250,0.14);
+      border: 1px solid rgba(96,165,250,0.22);
+      margin-bottom: 12px;
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+      gap: 18px;
+    }
+
+    .project-card {
+      position: relative;
+      overflow: hidden;
+      border-radius: 24px;
+      padding: 22px;
+      background:
+        linear-gradient(180deg, rgba(17,24,39,0.85), rgba(17,24,39,0.72)),
+        linear-gradient(135deg, rgba(37,99,235,0.20), rgba(34,211,238,0.12));
+      border: 1px solid rgba(255,255,255,0.10);
+      transition: transform 0.28s ease, border-color 0.28s ease;
+    }
+
+    .project-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(34,211,238,0.32);
+    }
+
+    .project-card .project-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+
+    .project-card .project-name {
+      font-size: 19px;
+      font-weight: 800;
+      color: white;
+      margin: 0;
+    }
+
+    .project-badge {
+      font-size: 11px;
+      font-weight: 800;
+      padding: 7px 10px;
+      border-radius: 999px;
+      background: rgba(52,211,153,0.12);
+      color: #a7f3d0;
+      border: 1px solid rgba(52,211,153,0.18);
+      white-space: nowrap;
+    }
+
+    .project-card p {
+      margin-bottom: 0;
+    }
+
+    .edu-card,
+    .cert-list-card {
+      background: linear-gradient(180deg, rgba(255,255,255,0.09), rgba(255,255,255,0.06));
+      border: 1px solid rgba(255,255,255,0.10);
+      border-radius: 22px;
+      padding: 22px;
+    }
+
+    .footer {
+      margin-top: 24px;
+      text-align: center;
+      color: #94a3b8;
+      font-size: 14px;
+      padding: 18px 10px;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(8px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .page {
+        padding: 16px 12px 28px;
+      }
+
+      .hero {
+        padding: 34px 22px;
+        border-radius: 24px;
+      }
+
+      .hero h1 {
+        font-size: 30px;
+      }
+
+      .hero p {
+        font-size: 15px;
+      }
+
+      .panel {
+        padding: 22px 18px;
+      }
+
+      h2 {
+        font-size: 24px;
+      }
+
+      .tab-button {
+        width: 100%;
+        text-align: left;
+      }
+    }
+  </style>
 </head>
-
 <body>
+  <div class="page">
+    <section class="hero">
+      <div class="hero-content">
+        <div class="hero-badge">Technical Lead • Data Engineering • Cloud & AI Platforms</div>
+        <h1>Chennakrishna Thumpiri</h1>
+        <p>
+          Technical Lead – Data Engineering with 15 years of experience delivering scalable,
+          cloud-native data platforms and enterprise analytics solutions using Python, SQL,
+          PySpark, Databricks, AWS, Azure, and distributed data processing technologies.
+        </p>
 
-<h1>Chennakrishna Thumpiri</h1>
-<p><b>Lead Data Engineer | SQL | Databricks | PySpark | Cloud Data Platforms</b></p>
+        <div class="highlights">
+          <div class="highlight">
+            <strong>15+</strong>
+            <span>Years of experience in enterprise data engineering</span>
+          </div>
+          <div class="highlight">
+            <strong>Databricks</strong>
+            <span>Lakehouse, Delta Lake, SQL, orchestration, performance tuning</span>
+          </div>
+          <div class="highlight">
+            <strong>AWS & Azure</strong>
+            <span>Modern cloud data architecture and analytics platforms</span>
+          </div>
+          <div class="highlight">
+            <strong>Metadata-Driven</strong>
+            <span>Reusable ingestion and ETL/ELT framework design</span>
+          </div>
+        </div>
+      </div>
+    </section>
 
-<div class="section">
-<h2>About Me</h2>
-<p>
-Lead Data Engineer with 15+ years experience building scalable
-data platforms using Databricks, PySpark, SQL and Cloud technologies.
-</p>
-</div>
+    <div class="tabs-wrap">
+      <div class="tabs">
+        <button class="tab-button active" onclick="openTab(event, 'summary')">Summary</button>
+        <button class="tab-button" onclick="openTab(event, 'technical')">Technical Capabilities</button>
+        <button class="tab-button" onclick="openTab(event, 'skills')">Skills</button>
+        <button class="tab-button" onclick="openTab(event, 'certifications')">Certifications</button>
+        <button class="tab-button" onclick="openTab(event, 'projects')">Projects Delivered</button>
+        <button class="tab-button" onclick="openTab(event, 'education')">Education</button>
+      </div>
+    </div>
 
-<div class="section">
-<h2>Key Skills</h2>
-<ul>
-<li>Databricks Lakehouse</li>
-<li>PySpark & Spark SQL</li>
-<li>Medallion Architecture</li>
-<li>MDM & Data Matching</li>
-<li>ETL Frameworks</li>
-<li>AWS & Azure Data Platforms</li>
-</ul>
-</div>
+    <div class="content-area">
+      <div id="summary" class="tab-content active">
+        <div class="panel">
+          <h2>Professional Summary</h2>
+          <ul>
+            <li>Technical Lead – Data Engineering with 15 years of experience delivering scalable, cloud-native data platforms and enterprise analytics solutions using Python, SQL, PySpark, and distributed data processing technologies.</li>
+            <li>Strong architect-thinking approach in designing end-to-end data solutions, with deep expertise in Databricks Lakehouse, including Medallion architecture, Delta Lake optimization, Databricks SQL, workflow orchestration, cluster sizing strategies, and performance tuning for large-scale enterprise workloads.</li>
+            <li>Proven experience leading data platform modernization initiatives, transforming legacy Oracle PL/SQL and traditional ETL ecosystems into distributed PySpark frameworks, significantly improving scalability, resiliency, and processing efficiency.</li>
+            <li>Enabled enterprise data platform scalability by building a configurable metadata-driven ingestion framework across Talend, AWS, Vertica, and Databricks, significantly improving onboarding velocity, standardization, and operational maintainability.</li>
+            <li>Designed and implemented metadata-driven, reusable ETL/ELT frameworks using Talend and Databricks, enabling standardized ingestion patterns, faster onboarding of new data sources, and improved maintainability of enterprise data pipelines.</li>
+            <li>Extensive cloud engineering expertise across AWS and Azure supporting modern data warehousing, advanced analytics, and batch and near real-time data processing architectures.</li>
+            <li>Enabled an enterprise AI-driven developer productivity solution by building a PL/SQL-to-PySpark conversion chatbot using Amazon Bedrock, accelerating legacy migration efforts and reducing manual development effort across data engineering teams.</li>
+            <li>Strong experience in Master Data Management, data quality, and governance frameworks, leveraging Talend Data Quality and Collibra to improve trusted data availability and enforce enterprise data standards.</li>
+            <li>Focused on scalable solution design, performance optimization, and cost governance, implementing partitioning strategies, optimized storage formats, and workload tuning for high-volume analytics environments.</li>
+            <li>Experienced in leading cross-functional Agile teams, driving technical design discussions, mentoring engineers, conducting code reviews, and collaborating with product managers, architects, and business stakeholders.</li>
+          </ul>
+        </div>
+      </div>
 
-<div class="section">
-<h2>Projects</h2>
-<ul>
-<li>Metadata Driven Databricks Ingestion Framework</li>
-<li>PySpark MDM Matching Engine</li>
-<li>Databricks CI/CD with Jenkins</li>
-<li>Medallion Architecture Implementation</li>
-</ul>
-</div>
+      <div id="technical" class="tab-content">
+        <div class="panel">
+          <h2>Technical Capabilities</h2>
+          <div class="grid">
+            <div class="modern-card">
+              <div class="tag">Architecture</div>
+              <h4>Cloud Data Platform Engineering</h4>
+              <p>Designing scalable enterprise-grade platforms across Databricks, AWS, Azure, and hybrid ecosystems.</p>
+            </div>
+            <div class="modern-card">
+              <div class="tag">Big Data</div>
+              <h4>Distributed Processing</h4>
+              <p>Building large-scale data pipelines using PySpark, Spark SQL, Hadoop, and optimized storage patterns.</p>
+            </div>
+            <div class="modern-card">
+              <div class="tag">Lakehouse</div>
+              <h4>Information Architecture</h4>
+              <p>Implementing Medallion architecture, Delta Lake design patterns, and reusable enterprise data layers.</p>
+            </div>
+            <div class="modern-card">
+              <div class="tag">ETL / ELT</div>
+              <h4>Framework Design</h4>
+              <p>Creating metadata-driven reusable ingestion and transformation frameworks for standardization and speed.</p>
+            </div>
+            <div class="modern-card">
+              <div class="tag">Governance</div>
+              <h4>MDM & Data Quality</h4>
+              <p>Improving trust and governance through match/merge logic, data quality processes, and standards enforcement.</p>
+            </div>
+            <div class="modern-card">
+              <div class="tag">Leadership</div>
+              <h4>Agile Delivery & Mentoring</h4>
+              <p>Leading teams, reviewing designs and code, mentoring engineers, and aligning delivery with business needs.</p>
+            </div>
+          </div>
+        </div>
+      </div>
 
-<div class="section">
-<h2>Contact</h2>
-<p>Email: gandlachinnikrishna@gmail.com</p>
-<p>LinkedIn: linkedin.com/in/yourprofile</p>
-</div>
+      <div id="skills" class="tab-content">
+        <div class="panel">
+          <h2>Skills</h2>
+          <div class="grid">
+            <div class="modern-card">
+              <h4>Languages</h4>
+              <p>Python, SQL, PL/SQL, Java, Shell Scripting</p>
+            </div>
+            <div class="modern-card">
+              <h4>Data Engineering</h4>
+              <p>Databricks Lakehouse, PySpark, Spark SQL, Delta Lake, Hadoop</p>
+            </div>
+            <div class="modern-card">
+              <h4>ETL & Integration</h4>
+              <p>Talend DI, Talend DQ, Talend MDM, Qlik Replicate, AWS DMS</p>
+            </div>
+            <div class="modern-card">
+              <h4>Databases</h4>
+              <p>Oracle, SQL Server, MySQL, PostgreSQL, Hive, Impala, Vertica, Redshift, Synapse</p>
+            </div>
+            <div class="modern-card">
+              <h4>Cloud Platforms</h4>
+              <p>AWS, Azure, Databricks, Talend Cloud</p>
+            </div>
+            <div class="modern-card">
+              <h4>AI / GenAI</h4>
+              <p>Amazon Bedrock, Databricks Genie</p>
+            </div>
+          </div>
+        </div>
+      </div>
 
+      <div id="certifications" class="tab-content">
+        <div class="panel">
+          <h2>Certifications</h2>
+          <div class="grid">
+            <div class="cert-list-card">
+              <ul>
+                <li>Databricks Certified Data Engineer Professional</li>
+                <li>Qlik Talend Solution Architect</li>
+                <li>AWS Certified Solutions Architect – Associate</li>
+                <li>Microsoft Certified: Azure Administrator Associate</li>
+                <li>Talend Big Data v6 Certified Developer</li>
+                <li>Talend Data Integration v7 Certified Developer</li>
+                <li>MCTS (Microsoft Certified Technology Specialist)</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="projects" class="tab-content">
+        <div class="panel">
+          <h2>Projects Delivered</h2>
+          <div class="project-grid">
+            <div class="project-card">
+              <div class="project-top">
+                <h3 class="project-name">TE Connectivity</h3>
+                <div class="project-badge">Modernization</div>
+              </div>
+              <p>Led Talend + Cloudera to Talend + AWS to Databricks + AWS modernization using Redshift, Aurora, Jenkins, Control-M, GitHub, and metadata-driven ingestion frameworks.</p>
+            </div>
+
+            <div class="project-card">
+              <div class="project-top">
+                <h3 class="project-name">Henry Schein</h3>
+                <div class="project-badge">Azure Platform</div>
+              </div>
+              <p>Supported Talend + Cloudera to Talend + Azure modernization using Synapse, Azure SQL, and reusable metadata ingestion patterns.</p>
+            </div>
+
+            <div class="project-card">
+              <div class="project-top">
+                <h3 class="project-name">Reliant Rehab</h3>
+                <div class="project-badge">Analytics</div>
+              </div>
+              <p>Implemented Azure Data Factory, Azure Synapse, and Power BI driven solutions for enterprise data and analytics delivery.</p>
+            </div>
+
+            <div class="project-card">
+              <div class="project-top">
+                <h3 class="project-name">Maxis</h3>
+                <div class="project-badge">Telco Data</div>
+              </div>
+              <p>Worked on Talend DI, HPE Vertica, Cloudera, Telco Data Model, MySQL, and metadata-driven ingestion framework implementation.</p>
+            </div>
+
+            <div class="project-card">
+              <div class="project-top">
+                <h3 class="project-name">Bank Danamon</h3>
+                <div class="project-badge">Big Data</div>
+              </div>
+              <p>Delivered Talend Big Data solutions, including Informatica-to-Talend conversion, with Hive, Impala, messaging, and configurable metadata ingestion patterns.</p>
+            </div>
+
+            <div class="project-card">
+              <div class="project-top">
+                <h3 class="project-name">Lincoln Financial Group</h3>
+                <div class="project-badge">Enterprise Integration</div>
+              </div>
+              <p>Built Talend DI, Talend Big Data, Talend MDM, and AWS-based enterprise data integration solutions.</p>
+            </div>
+
+            <div class="project-card">
+              <div class="project-top">
+                <h3 class="project-name">ABC Networks (Disney)</h3>
+                <div class="project-badge">AWS + Python</div>
+              </div>
+              <p>Created data engineering solutions using Python, AWS, Talend, and Hadoop for enterprise media workflows.</p>
+            </div>
+
+            <div class="project-card">
+              <div class="project-top">
+                <h3 class="project-name">Triumph Learning</h3>
+                <div class="project-badge">Reporting</div>
+              </div>
+              <p>Worked on Talend, AWS RDS, Redshift, and Jasper-based data integration and reporting solutions.</p>
+            </div>
+
+            <div class="project-card">
+              <div class="project-top">
+                <h3 class="project-name">UCSD Power Analysis</h3>
+                <div class="project-badge">Analytics</div>
+              </div>
+              <p>Delivered analytics and reporting solutions with OSI PI AF, Microsoft Power Pivot, and Power View.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="education" class="tab-content">
+        <div class="panel">
+          <h2>Education</h2>
+          <div class="edu-card">
+            <h3>Master of Computer Applications</h3>
+            <p>Jawaharlal Nehru Technological University, Hyderabad, India</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer">
+      © 2026 Chennakrishna Thumpiri | Technical Lead – Data & AI Platforms
+    </div>
+  </div>
+
+  <script>
+    function openTab(evt, tabId) {
+      const tabContents = document.querySelectorAll(".tab-content");
+      const tabButtons = document.querySelectorAll(".tab-button");
+
+      tabContents.forEach(content => content.classList.remove("active"));
+      tabButtons.forEach(button => button.classList.remove("active"));
+
+      document.getElementById(tabId).classList.add("active");
+      evt.currentTarget.classList.add("active");
+    }
+  </script>
 </body>
 </html>
